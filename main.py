@@ -1,8 +1,12 @@
 import tkinter as tk
+from tkinter.messagebox import showerror
 
 def change_bg_color():
-    color = entry.get()
-    canvas.config(bg=color)
+    try:
+        color = entry.get()
+        canvas.config(bg=color)
+    except tk.TclError:
+        showerror("Ошибка", "Такого цвета быть не может!")
 
 
 def clear():
